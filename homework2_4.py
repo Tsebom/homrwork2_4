@@ -33,7 +33,7 @@ def list_search_file(list, directory):
 	return list_file
 
 def main():
-	directory_file = os.path.join(os.path.dirname(__file__), 'Migrations')
+	directory_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Migrations')
 	list_file = os.listdir(directory_file)
 	list_file_sql = file_sql(list_file)# Список фаилов с расширением *.sql
 	while len(list_file_sql) > 1:
