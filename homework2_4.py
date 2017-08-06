@@ -1,11 +1,10 @@
-import operator
 import os
 
 def file_sql(list_file):
 	"""Возвращает список фаилов с расширением .sql, аргумент - (исходный список фаилов)"""
 	file_list_sql = []
 	for name in list_file:
-		if operator.__eq__(os.path.splitext(name)[1], '.sql'):
+		if os.path.splitext(name)[1] == '.sql':
 			file_list_sql.append(name)
 	return file_list_sql
 
@@ -37,7 +36,7 @@ def main():
 	directory_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Migrations')
 	list_file = os.listdir(directory_file)
 	list_file_sql = file_sql(list_file)# Список фаилов с расширением *.sql
-	while operator.__gt__(len(list_file_sql), 1):
+	while len(list_file_sql) >= 1:
 		list_file_sql = list_search_file(list_file_sql, directory_file)
 
 main()
